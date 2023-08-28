@@ -1,0 +1,15 @@
+{
+  "name": "super-tic-tac-toe",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "parcel src/index.html"
+  },
+  "author": "frectonz",
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/transformer-elm": "2.9.3",
+    "elm": "^0.19.1-5",
+    "parcel": "^2.9.3"
+  }
+}

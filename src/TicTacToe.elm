@@ -1,6 +1,6 @@
-module TicTacToe exposing (Cell(..), Position(..), TicTacToe, WinState(..), empty, update, viewBoard, viewWinState)
+module TicTacToe exposing (Cell(..), Position(..), TicTacToe, WinState(..), empty, update, viewBoard, viewWinState, winStateToStr)
 
-import Html exposing (Html, button, div, fieldset, h1, section, text)
+import Html exposing (Html, button, div, fieldset, section, text)
 import Html.Attributes exposing (class, disabled)
 import Html.Events exposing (onClick)
 
@@ -283,24 +283,25 @@ viewCell cell msg isDisabled =
         [ text cellStr ]
 
 
+winStateToStr : WinState -> String
+winStateToStr state =
+    case state of
+        XWinner ->
+            "X"
+
+        OWinner ->
+            "O"
+
+        Draw ->
+            "-"
+
+        InProgress ->
+            ""
+
+
 viewWinState : WinState -> Html msg
 viewWinState state =
-    let
-        winStateStr =
-            case state of
-                XWinner ->
-                    "X"
-
-                OWinner ->
-                    "O"
-
-                Draw ->
-                    "-"
-
-                InProgress ->
-                    ""
-    in
-    div [ class "board-overlay" ] [ text winStateStr ]
+    div [ class "board-overlay" ] [ winStateToStr state |> text ]
 
 
 viewBoard : TicTacToe -> (Position -> msg) -> Bool -> Html msg

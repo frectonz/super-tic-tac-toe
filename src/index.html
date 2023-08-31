@@ -78,7 +78,7 @@
 
       background-color: rgba(255, 255, 255, .3);
       color: white;
-      font-size: 5rem;
+      font-size: 5vw;
 
       display: flex;
       align-items: center;
@@ -87,7 +87,26 @@
       backdrop-filter: blur(3px);
     }
 
-    .board-overlay:empty {
+    .main-board-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+
+      background-color: rgba(0, 0, 0, .1);
+      color: white;
+      font-size: 30vw;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      backdrop-filter: brightness(0.5);
+    }
+
+    .board-overlay:empty,
+    .main-board-overlay:empty {
       scale: 0;
       opacity: 0;
     }

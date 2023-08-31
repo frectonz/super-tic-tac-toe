@@ -1,8 +1,8 @@
 module SuperTicTacToe exposing (GamePosition, SuperTicTacToe, empty, update, viewBoard)
 
-import Html exposing (Html, div, fieldset, section)
+import Html exposing (Html, div, fieldset, section, text)
 import Html.Attributes exposing (class)
-import TicTacToe exposing (Cell(..), Position(..), TicTacToe, WinState(..), viewWinState)
+import TicTacToe exposing (Cell(..), Position(..), TicTacToe, WinState(..), winStateToStr)
 
 
 type Turn
@@ -273,6 +273,11 @@ getWinState pos board =
 
         BottomRight ->
             board.bottomRight.winState
+
+
+viewWinState : WinState -> Html msg
+viewWinState state =
+    div [ class "main-board-overlay" ] [ winStateToStr state |> text ]
 
 
 viewBoard : SuperTicTacToe -> (GamePosition -> msg) -> Html msg
